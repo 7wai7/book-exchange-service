@@ -21,7 +21,7 @@ export default function authGuard(isHardGuard = true) {
             return next();
         }
 
-        // req.user = user;
+        req.user = user;
         next();
     };
 }
