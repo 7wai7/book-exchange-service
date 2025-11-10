@@ -5,7 +5,7 @@ class UserService {
         return await User.create(data);
     }
 
-    async findOne(options: Partial<Omit<UserCreationAttrs, "password">>) {
+    async findOne(options: Partial<Omit<User, "password">>) {
         return await User.findOne({ where: options });
     }
 }

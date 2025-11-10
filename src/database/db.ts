@@ -1,6 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
 import dotenv from 'dotenv';
 import { User } from "../user/models/user.model";
+import { Book } from "../books/models/book.model";
+import { File } from "../storage/file.model";
 dotenv.config();
 
 const {
@@ -16,7 +18,7 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:${D
 export async function connectDB() {
     try {
         await sequelize.authenticate();
-        sequelize.addModels([User]);
+        sequelize.addModels([User, Book, File]);
         
         console.log('Connection has been established successfully.');
     } catch (error) {
